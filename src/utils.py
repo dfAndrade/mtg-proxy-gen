@@ -1,6 +1,9 @@
 import requests
 import cv2
 import numpy as np
+import os
+
+CARD_IMGS_ENDPOINT = 'https://api.scryfall.com/cards/collection'
 
 
 def link_to_image(link):
@@ -14,7 +17,6 @@ def build_card_page(cards):
     page = np.ones((3508, 2480, 3)).astype(np.uint8) * 255
 
     padding = 1
-    x_offset, y_offset = 0, 0
     for idx, card in enumerate(cards):
         card_h, card_w, _ = card.shape
 
@@ -38,8 +40,11 @@ def get_img_link_from_card_obj(card_obj):
 
 
 def parse_deck_to_identifier(decklist_path):
-    with open(decklist_path) as f:
-        lines = f.readlines()
+    try:
+        with open(decklist_path) as f:
+            lines = f.readlines()
+    except:
+        print('')
     
     card_ids = []
     for line in lines:
@@ -52,5 +57,12 @@ def parse_deck_to_identifier(decklist_path):
             card_ids.append(card_id)
 
     return card_ids
+
+
+def file_path(path):
+    if os.path.isfile(path):
+        return path
+    else:
+        raise FileNotFoundError(path)
 
 
