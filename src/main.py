@@ -16,6 +16,8 @@ import os
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Generate Magic The Gathering proxy decks ready to print')
     parser.add_argument('--path', type=file_path, help='path to the decklist .txt file')
+    parser.add_argument('--proxy_mark', type=bool, default=False, help='add proxy mark to each card')
+    parser.add_argument('--add_mark', type=bool, default=True, help='add author mark to page empty space')
     args = parser.parse_args()
     print(args)
     print(args.path)
@@ -48,3 +50,5 @@ if __name__ == '__main__':
         save_page(f'page_{i//9}.png', page)
         # plt.imshow(page)
         # plt.show()
+
+
