@@ -1,0 +1,78 @@
+1 Abhorrent Overlord
+1 Artisan of Kozilek
+1 Butcher of Malakir
+1 Dawnglade Regent
+1 End-Raze Forerunners
+1 Giant Adephage
+1 Harvester of Souls
+1 Hornet Queen
+1 Izoni, Thousand-Eyed
+1 Lorcan, Warlock Collector
+1 Moldgraf Monstrosity
+1 Necropolis Regent
+1 Old Stickfingers
+1 Overseer of the Damned
+1 Rakshasa Debaser
+1 Sepulchral Primordial
+1 Soul of the Harvest
+1 Terastodon
+1 Thieving Amalgam
+1 Thorn Mammoth
+1 Titanoth Rex
+1 Triplicate Titan
+1 Ulamog's Crusher
+1 Ulvenwald Observer
+1 Verdant Force
+1 Whisper, Blood Liturgist
+1 Ambition's Cost
+1 Ancient Craving
+1 Back for More
+1 Beacon of Unrest
+1 Beast Within
+1 Binding the Old Gods
+1 Boneyard Parley
+1 Casualties of War
+1 Cultivate
+1 Dark Bargain
+1 Diregraf Rebirth
+1 Dread Return
+1 Edge of Autumn
+1 Ever After
+1 Explore
+1 Font of Fertility
+1 Gaze of Granite
+1 Grow from the Ashes
+1 Harmonize
+1 Harrow
+1 Makeshift Mannequin
+1 Moonlight Bargain
+1 Necromantic Selection
+1 Rampant Growth
+1 Read the Bones
+1 Return to Nature
+1 Search for Tomorrow
+1 Sign in Blood
+1 Talisman of Resilience
+1 The Cauldron of Eternity
+1 Unbreakable Bond
+1 Victimize
+1 Vigor Mortis
+1 Wild Growth
+1 Wilt
+1 Yawgmoth's Vile Offering
+1 Zombify
+1 Ash Barrens
+1 Blighted Woodland
+1 Command Tower
+1 Evolving Wilds
+1 Exotic Orchard
+12 Forest
+1 Foul Orchard
+1 Golgari Guildgate
+1 High Market
+1 Jungle Hollow
+1 Myriad Landscape
+12 Swamp
+1 Terramorphic Expanse
+1 Thriving Grove
+1 Thriving Moor
