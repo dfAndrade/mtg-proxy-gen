@@ -2,6 +2,7 @@ import requests
 import cv2
 import numpy as np
 import os
+from fpdf import FPDF
 
 CARD_IMGS_ENDPOINT = 'https://api.scryfall.com/cards/collection'
 
@@ -26,7 +27,7 @@ def build_card_page(cards):
         x_offset = (x_idx * card_w) + (x_idx * padding)
         y_offset = (y_idx * card_h) + (y_idx * padding)
 
-        page[y_offset:y_offset + card_h, x_offset:x_offset + card_w] = card
+        page[80 + y_offset:80 + y_offset + card_h, 80 + x_offset:80 + x_offset + card_w] = card
 
     return page
 

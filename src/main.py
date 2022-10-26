@@ -11,17 +11,18 @@ import numpy as np
 import urllib.request
 import matplotlib.pyplot as plt
 import os
-
+from fpdf import FPDF
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Generate Magic The Gathering proxy decks ready to print')
-    parser.add_argument('--path', type=file_path, help='path to the decklist .txt file')
-    parser.add_argument('--proxy_mark', type=bool, default=False, help='add proxy mark to each card')
-    parser.add_argument('--add_mark', type=bool, default=True, help='add author mark to page empty space')
-    args = parser.parse_args()
-    print(args)
-    print(args.path)
-    decklist_path = Path(args.path)
+    # parser = argparse.ArgumentParser(description='Generate Magic The Gathering proxy decks ready to print')
+    # parser.add_argument('--path', type=file_path, help='path to the decklist .txt file')
+    # parser.add_argument('--proxy_mark', type=bool, default=False, help='add proxy mark to each card')
+    # parser.add_argument('--add_mark', type=bool, default=True, help='add author mark to page empty space')
+    # args = parser.parse_args()
+    # print(args)
+    # print(args.path)
+    # decklist_path = Path(args.path)
+    decklist_path = Path('/Users/fredericooliveira/PycharmProjects/mtg-proxy-gen/src/diogo_deck.txt')
 
     # Parse decklist
     print(f'>>> Parsing decklist in {decklist_path}')
@@ -44,11 +45,15 @@ if __name__ == '__main__':
         cards.append(card_img)
 
     # Build and generate proxy pages
+    pdf = FPDF(orientation='P', unit="mm", format="A4")
     for i in tqdm(range(0, len(cards), 9), desc='>>> Generating proxy pages'):
         card_batch = cards[i:i+9]
         page = build_card_page(card_batch)
-        save_page(f'page_{i//9}.png', page)
-        # plt.imshow(page)
-        # plt.show()
+        pdf.add_page()
+        temp_page_filename = f'page_{i//9}.png'
+        save_page(temp_page_filename, page)
+        pdf.image(temp_page_filename, x=0, y=0, w=210, h=297)
+        os.remove(temp_page_filename)
 
+    pdf.output(f"{str(decklist_path).split(os.sep)[-1].split('.')[0]}.pdf", "F")
 
