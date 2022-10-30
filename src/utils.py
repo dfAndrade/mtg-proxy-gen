@@ -46,7 +46,7 @@ def parse_deck_to_identifier(decklist_path):
             lines = f.readlines()
     except:
         print('')
-    
+
     card_ids = []
     for line in lines:
         line_data = line.strip().split(' ')
@@ -54,7 +54,10 @@ def parse_deck_to_identifier(decklist_path):
         name = ' '.join(line_data[1:])
 
         for _ in range(int(quantity)):
-            card_id = {'name': name}
+            if "-" in name and len(name) == 36:  # TODO better pattern matching for UUID's
+                card_id = {'id': name}
+            else:
+                card_id = {'name': name}
             card_ids.append(card_id)
 
     return card_ids

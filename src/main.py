@@ -14,6 +14,9 @@ import os
 from fpdf import FPDF
 
 if __name__ == '__main__':
+    import sys
+    args = sys.argv
+
     # parser = argparse.ArgumentParser(description='Generate Magic The Gathering proxy decks ready to print')
     # parser.add_argument('--path', type=file_path, help='path to the decklist .txt file')
     # parser.add_argument('--proxy_mark', type=bool, default=False, help='add proxy mark to each card')
@@ -22,7 +25,13 @@ if __name__ == '__main__':
     # print(args)
     # print(args.path)
     # decklist_path = Path(args.path)
-    decklist_path = Path('/Users/fredericooliveira/PycharmProjects/mtg-proxy-gen/src/diogo_deck.txt')
+
+    if len(args) > 1:
+        deck_path = args[1]
+    else:
+        deck_path = './decklist.txt'
+
+    decklist_path = Path(deck_path)
 
     # Parse decklist
     print(f'>>> Parsing decklist in {decklist_path}')
