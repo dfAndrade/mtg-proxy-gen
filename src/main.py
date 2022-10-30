@@ -4,34 +4,19 @@ import argparse
 from pathlib import Path
 from utils import link_to_image, build_card_page, get_img_link_from_card_obj, \
     save_page, parse_deck_to_identifier, CARD_IMGS_ENDPOINT, file_path
-import logging
-
-import cv2
-import numpy as np
-import urllib.request
-import matplotlib.pyplot as plt
 import os
 from fpdf import FPDF
 
 if __name__ == '__main__':
-    import sys
-    args = sys.argv
 
-    # parser = argparse.ArgumentParser(description='Generate Magic The Gathering proxy decks ready to print')
-    # parser.add_argument('--path', type=file_path, help='path to the decklist .txt file')
-    # parser.add_argument('--proxy_mark', type=bool, default=False, help='add proxy mark to each card')
-    # parser.add_argument('--add_mark', type=bool, default=True, help='add author mark to page empty space')
-    # args = parser.parse_args()
+    parser = argparse.ArgumentParser(description='Generate Magic The Gathering proxy decks ready to print')
+    parser.add_argument('--path', type=file_path, default="decklist.txt", help='path to the decklist .txt file')
+    parser.add_argument('--proxy_mark', type=bool, default=False, help='add proxy mark to each card')
+    parser.add_argument('--add_mark', type=bool, default=True, help='add author mark to page empty space')
+    args = parser.parse_args()
     # print(args)
     # print(args.path)
-    # decklist_path = Path(args.path)
-
-    if len(args) > 1:
-        deck_path = args[1]
-    else:
-        deck_path = './decklist.txt'
-
-    decklist_path = Path(deck_path)
+    decklist_path = Path(args.path)
 
     # Parse decklist
     print(f'>>> Parsing decklist in {decklist_path}')
