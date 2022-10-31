@@ -13,6 +13,9 @@ def link_to_image(link):
     image = cv2.imdecode(data, cv2.IMREAD_UNCHANGED)
     return image
 
+def full_link_to_image(link):
+    return link_to_image(link)[:, :, :3]
+
 
 def build_card_page(cards):
     page = np.ones((3508, 2480, 3)).astype(np.uint8) * 255

@@ -27,8 +27,8 @@ if __name__ == '__main__':
     card_objs = []
     for i in range(0, len(card_ids), 75):
         offset = min(75, len(card_ids)-i)
-        myobj = {"identifiers": card_ids[i:i+offset]}
-        resp = requests.post(CARD_IMGS_ENDPOINT, json = myobj)
+        my_obj = {"identifiers": card_ids[i:i + offset]}
+        resp = requests.post(CARD_IMGS_ENDPOINT, json=my_obj)
         card_objs += resp.json()['data']
 
     # Get Images from card objects
@@ -49,5 +49,6 @@ if __name__ == '__main__':
         pdf.image(temp_page_filename, x=0, y=0, w=210, h=297)
         os.remove(temp_page_filename)
 
-    pdf.output(f"{str(decklist_path).split(os.sep)[-1].split('.')[0]}.pdf", "F")
+    file_name = str(decklist_path).split(os.sep)[-1].split('.')[0]
+    pdf.output(f"{file_name}.pdf", "F")
 
